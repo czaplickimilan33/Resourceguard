@@ -37,6 +37,7 @@ export const navLinks: NavLink[] = [
   { label: "Tryb kryzysowy", href: "#crisis-mode" },
   { label: "Dashboard", href: "#dashboard" },
   { label: "Misja", href: "#mission" },
+  { label: "Pomoc teraz", href: "#help" },
   { label: "Kontakt", href: "#contact" },
 ];
 
@@ -421,6 +422,54 @@ export const contactCards: ContactCard[] = [
   {
     title: "Dla partnerów społecznych",
     text: "Fundacje, instytucje i specjaliści — chętnie porozmawiamy o współpracy.",
+  },
+];
+
+/* ------------------------------ Telefony pomocowe ------------------------------ */
+
+export interface Helpline {
+  number: string;
+  tel: string;
+  name: string;
+  desc: string;
+  info: string;
+}
+
+export const helplines: Helpline[] = [
+  {
+    number: "116 111",
+    tel: "116111",
+    name: "Telefon Zaufania dla Dzieci i Młodzieży",
+    desc: "Dla dzieci i nastolatków — także przy obniżonym nastroju, depresji, lęku czy problemach w domu i szkole. Prowadzi Fundacja Dajemy Dzieciom Siłę. Dostępny też czat na 116111.pl.",
+    info: "24/7 · bezpłatny · anonimowy",
+  },
+  {
+    number: "800 12 12 12",
+    tel: "800121212",
+    name: "Dziecięcy Telefon Zaufania Rzecznika Praw Dziecka",
+    desc: "Wsparcie psychologiczne dla dzieci i młodzieży oraz dorosłych dzwoniących w sprawie dziecka. Dostępny również czat.",
+    info: "24/7 · bezpłatny",
+  },
+  {
+    number: "116 123",
+    tel: "116123",
+    name: "Telefon zaufania dla dorosłych w kryzysie emocjonalnym",
+    desc: "Dla dorosłych przeżywających trudne emocje, samotność, kryzys psychiczny lub myśli rezygnacyjne.",
+    info: "24/7 · bezpłatny",
+  },
+  {
+    number: "800 70 2222",
+    tel: "800702222",
+    name: "Centrum Wsparcia dla Osób Dorosłych w Kryzysie Psychicznym",
+    desc: "Całodobowe wsparcie psychologiczne dla dorosłych — przy depresji, zaburzeniach psychicznych i kryzysie. Dyżury także mailowo i na czacie.",
+    info: "24/7 · bezpłatny",
+  },
+  {
+    number: "800 120 002",
+    tel: "800120002",
+    name: "Niebieska Linia — przemoc w rodzinie",
+    desc: "Ogólnopolski telefon dla osób doświadczających przemocy domowej oraz świadków przemocy.",
+    info: "24/7 · bezpłatny",
   },
 ];
 

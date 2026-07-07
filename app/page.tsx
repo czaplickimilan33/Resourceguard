@@ -11,6 +11,7 @@ import ProcessSection from "@/components/sections/ProcessSection";
 import UseCasesSection from "@/components/sections/UseCasesSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import MissionSection from "@/components/sections/MissionSection";
+import HelplinesSection from "@/components/sections/HelplinesSection";
 import ContactSection from "@/components/sections/ContactSection";
 import CTASection from "@/components/sections/CTASection";
 
@@ -30,6 +31,7 @@ export default function HomePage() {
         <UseCasesSection />
         <TestimonialsSection />
         <MissionSection />
+        <HelplinesSection />
         <ContactSection />
         <CTASection />
       </main>

@@ -37,6 +37,11 @@ export default function Footer() {
           <div>
             <p className="text-sm font-semibold text-ink">Ważne</p>
             <p className="mt-3 text-sm leading-relaxed text-mut">{disclaimer}</p>
+            <p className="mt-4 text-sm leading-relaxed text-mut">
+              Numer alarmowy: <a href="tel:112" className="font-medium text-ink hover:text-accent">112</a>
+              {" · "}Dzieci i młodzież: <a href="tel:116111" className="font-medium text-ink hover:text-accent">116 111</a>
+              {" · "}Dorośli w kryzysie: <a href="tel:116123" className="font-medium text-ink hover:text-accent">116 123</a>
+            </p>
           </div>
         </div>
 
