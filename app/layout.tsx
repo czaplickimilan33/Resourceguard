@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://resourceguard.vercel.app"),
   title: "ResourceGuard — cyfrowe wsparcie w sytuacjach kryzysowych",
   description:
     "ResourceGuard to projekt aplikacji łączącej wsparcie kryzysowe, pierwszą pomoc, survival, tryb offline i proste instrukcje działania w trudnych sytuacjach.",
