@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { CheckCircle2, Circle, Gauge } from "lucide-react";
 import clsx from "clsx";
@@ -19,10 +20,37 @@ const toneBar: Record<string, string> = {
   warn: "bg-warn",
 };
 
+const toneChip: Record<string, string> = {
+  accent: "bg-accent/10 text-accent",
+  mint: "bg-mint/10 text-mint",
+  lav: "bg-lav/10 text-lav",
+  warn: "bg-warn/10 text-warn",
+};
+
 const days = ["Pn", "Wt", "Śr", "Cz", "Pt", "So", "Nd"];
 
 export default function DashboardSection() {
   const reduceMotion = useReducedMotion();
+  const [score, setScore] = useState(0);
+  const started = useRef(false);
+
+  function startCounter() {
+    if (started.current) return;
+    started.current = true;
+    if (reduceMotion) {
+      setScore(readinessScore);
+      return;
+    }
+    const t0 = performance.now();
+    const duration = 1100;
+    const tick = (t: number) => {
+      const p = Math.min(1, (t - t0) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setScore(Math.round(readinessScore * eased));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
 
   return (
     <section id="dashboard" className="py-20 sm:py-28">
@@ -34,7 +62,11 @@ export default function DashboardSection() {
         />
 
         <Reveal>
-          <div className="rounded-3xl border border-white/8 bg-card-deep p-5 sm:p-8">
+          <motion.div
+            className="rounded-3xl border border-white/8 bg-card-deep p-5 sm:p-8"
+            onViewportEnter={startCounter}
+            viewport={{ once: true, margin: "-80px" }}
+          >
             <div className="grid gap-4 lg:grid-cols-[1.2fr_1fr] lg:gap-6">
               {/* Left column */}
               <div className="space-y-4">
@@ -54,15 +86,14 @@ export default function DashboardSection() {
                         </p>
                       </div>
                     </div>
-                    <p className="text-3xl font-semibold text-ink">
-                      {readinessScore}%
+                    <p
+                      className="text-3xl font-semibold tabular-nums text-ink"
+                      aria-label={`Poziom przygotowania: ${readinessScore} procent`}
+                    >
+                      {score}%
                     </p>
                   </div>
-                  <div
-                    className="mt-4 h-2.5 overflow-hidden rounded-full bg-white/8"
-                    role="img"
-                    aria-label={`Poziom przygotowania: ${readinessScore} procent`}
-                  >
+                  <div className="mt-4 h-2.5 overflow-hidden rounded-full bg-white/8" aria-hidden>
                     <motion.div
                       className="h-full rounded-full bg-gradient-to-r from-accent to-mint"
                       initial={
@@ -82,13 +113,23 @@ export default function DashboardSection() {
                   {dashboardStats.map((stat, i) => (
                     <div
                       key={stat.label}
-                      className="rounded-2xl border border-white/8 bg-card p-5"
+                      className="rounded-2xl border border-white/8 bg-card p-5 transition-colors duration-300 hover:border-accent/25"
                     >
-                      <p className="text-xs text-mut">{stat.label}</p>
+                      <div className="flex items-start justify-between gap-2">
+                        <p className="text-xs text-mut">{stat.label}</p>
+                        <span
+                          className={clsx(
+                            "shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium",
+                            toneChip[stat.tone]
+                          )}
+                        >
+                          {stat.status}
+                        </span>
+                      </div>
                       <p className="mt-1 text-lg font-semibold text-ink">
                         {stat.value}
                       </p>
-                      <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/8">
+                      <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/8" aria-hidden>
                         <motion.div
                           className={clsx(
                             "h-full rounded-full",
@@ -131,12 +172,14 @@ export default function DashboardSection() {
                     {weeklyActivity.map((value, i) => (
                       <div
                         key={days[i]}
-                        className="flex flex-1 flex-col items-center gap-2"
+                        className="flex h-full flex-1 flex-col items-center justify-end gap-2"
                       >
                         <motion.div
                           className={clsx(
-                            "w-full rounded-md",
-                            i === 5 ? "bg-accent" : "bg-accent/30"
+                            "w-full rounded-md transition-colors",
+                            i === 5
+                              ? "bg-accent"
+                              : "bg-accent/30 hover:bg-accent/50"
                           )}
                           initial={
                             reduceMotion
@@ -182,6 +225,11 @@ export default function DashboardSection() {
                         <span className={item.done ? "text-ink" : "text-mut"}>
                           {item.label}
                         </span>
+                        {!item.done && (
+                          <span className="ml-auto rounded-full bg-white/5 px-2 py-0.5 text-[10px] text-mut">
+                            zaplanuj
+                          </span>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -191,7 +239,7 @@ export default function DashboardSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </Reveal>
       </div>
     </section>

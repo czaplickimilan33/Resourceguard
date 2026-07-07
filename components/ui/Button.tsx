@@ -37,7 +37,7 @@ export default function Button({
   onClick,
 }: ButtonProps) {
   const classes = clsx(
-    "inline-flex items-center justify-center gap-2 rounded-xl transition-colors duration-200",
+    "group inline-flex items-center justify-center gap-2 rounded-xl transition duration-200 active:scale-[0.98]",
     "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
     variantClasses[variant],
     sizeClasses[size],

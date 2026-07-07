@@ -18,7 +18,7 @@ export default function FeatureCard({ icon: Icon, title, text }: FeatureCardProp
         aria-hidden
       />
       <div className="relative">
-        <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-accent/20 bg-accent/10 text-accent">
+        <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-accent/20 bg-accent/10 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:border-accent/40">
           <Icon className="h-5 w-5" aria-hidden />
         </div>
         <h3 className="text-base font-semibold text-ink">{title}</h3>

@@ -269,16 +269,17 @@ export interface DashboardStat {
   value: string;
   percent: number;
   tone: "accent" | "mint" | "lav" | "warn";
+  status: string;
 }
 
 export const readinessScore = 72;
 
 export const dashboardStats: DashboardStat[] = [
-  { label: "Kontakty awaryjne", value: "4/5", percent: 80, tone: "accent" },
-  { label: "Poradniki offline", value: "8 pobranych", percent: 100, tone: "mint" },
-  { label: "Checklisty bezpieczeństwa", value: "11/16", percent: 69, tone: "accent" },
-  { label: "Ćwiczenia uspokajające", value: "5 ukończonych", percent: 62, tone: "lav" },
-  { label: "Plan domowy", value: "w trakcie", percent: 45, tone: "warn" },
+  { label: "Kontakty awaryjne", value: "4/5", percent: 80, tone: "accent", status: "Prawie gotowe" },
+  { label: "Poradniki offline", value: "8 pobranych", percent: 100, tone: "mint", status: "Gotowe" },
+  { label: "Checklisty bezpieczeństwa", value: "11/16", percent: 69, tone: "accent", status: "W trakcie" },
+  { label: "Ćwiczenia uspokajające", value: "5 ukończonych", percent: 62, tone: "lav", status: "W trakcie" },
+  { label: "Plan domowy", value: "3 z 7 kroków", percent: 45, tone: "warn", status: "Do dokończenia" },
 ];
 
 export const weeklyActivity = [35, 55, 40, 70, 50, 85, 60];

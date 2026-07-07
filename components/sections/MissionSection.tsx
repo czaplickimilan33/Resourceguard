@@ -2,6 +2,7 @@ import { AlertTriangle, Check } from "lucide-react";
 import { disclaimer, values } from "@/lib/data";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Reveal from "@/components/ui/Reveal";
+import Button from "@/components/ui/Button";
 
 export default function MissionSection() {
   return (
@@ -34,6 +35,11 @@ export default function MissionSection() {
                 i nie zastępuje specjalistów. To narzędzie edukacyjne
                 i wspierające, nie służba ratunkowa.
               </p>
+              <div className="pt-2">
+                <Button href="#contact" variant="secondary">
+                  Napisz w sprawie współpracy
+                </Button>
+              </div>
             </div>
           </Reveal>
 

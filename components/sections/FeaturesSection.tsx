@@ -20,6 +20,18 @@ export default function FeaturesSection() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.15}>
+          <p className="mt-10 text-center">
+            <a
+              href="#crisis-mode"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-sky-300"
+            >
+              Zobacz tryb kryzysowy w akcji
+              <span aria-hidden>→</span>
+            </a>
+          </p>
+        </Reveal>
       </div>
     </section>
   );
