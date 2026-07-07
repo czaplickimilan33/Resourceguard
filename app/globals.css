@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #07111f;
+  --color-night-2: #0b1628;
+  --color-card: #101f33;
+  --color-card-deep: #0f172a;
+  --color-accent: #38bdf8;
+  --color-mint: #2dd4bf;
+  --color-lav: #a78bfa;
+  --color-warn: #fbbf24;
+  --color-ink: #e5e7eb;
+  --color-mut: #94a3b8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-night text-ink antialiased;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.3);
+  color: #f8fafc;
+}
+
+/* Anchor targets land below the sticky navbar */
+[id] {
+  scroll-margin-top: 96px;
+}
+
+/* Soft pulsing status dot */
+@keyframes dot-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(45, 212, 191, 0);
+  }
+}
+
+.dot-pulse {
+  animation: dot-pulse 2.4s ease-in-out infinite;
+}
+
+/* Very slow background glow drift */
+@keyframes glow-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(2%, 3%, 0) scale(1.06);
+  }
+}
+
+.glow-drift {
+  animation: glow-drift 18s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .dot-pulse,
+  .glow-drift {
+    animation: none;
+  }
+}
