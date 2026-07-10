@@ -189,8 +189,14 @@ export default function ContactSection() {
                   </Button>
                   <p className="text-xs text-mut">
                     {WEB3FORMS_KEY
-                      ? "Twoje dane wykorzystamy wyłącznie do odpowiedzi na wiadomość."
-                      : "To wersja demonstracyjna formularza. Dane nie są jeszcze wysyłane do serwera."}
+                      ? "Twoje dane wykorzystamy wyłącznie do odpowiedzi na wiadomość. "
+                      : "To wersja demonstracyjna formularza. Dane nie są jeszcze wysyłane do serwera. "}
+                    <a
+                      href="/polityka-prywatnosci"
+                      className="underline decoration-white/20 underline-offset-2 transition-colors hover:text-ink"
+                    >
+                      Polityka prywatności
+                    </a>
                   </p>
                 </div>
               </form>
