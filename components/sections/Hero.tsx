@@ -59,11 +59,11 @@ export default function Hero() {
           </motion.p>
 
           <motion.div {...fadeUp(0.3)} className="mt-8 flex flex-wrap gap-3">
-            <Button href="#contact" size="lg">
+            <Button href="/#kontakt" size="lg">
               Dołącz do listy
             </Button>
-            <Button href="#crisis-mode" variant="secondary" size="lg">
-              Zobacz tryb kryzysowy
+            <Button href="/demo" variant="secondary" size="lg">
+              Zobacz, jak działa
               <ChevronRight
                 className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                 aria-hidden

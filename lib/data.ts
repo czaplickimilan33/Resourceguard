@@ -13,6 +13,7 @@ import {
   Home,
   LayoutDashboard,
   ListChecks,
+  Map,
   PhoneCall,
   School,
   Search,
@@ -28,18 +29,37 @@ import {
 export interface NavLink {
   label: string;
   href: string;
+  /** Wyróżnienie pozycji „Pomoc teraz” w menu. */
+  emphasis?: "help";
 }
 
 export const navLinks: NavLink[] = [
-  { label: "Start", href: "#start" },
-  { label: "Problem", href: "#problem" },
-  { label: "Funkcje", href: "#features" },
-  { label: "Tryb kryzysowy", href: "#crisis-mode" },
-  { label: "Dashboard", href: "#dashboard" },
-  { label: "Misja", href: "#mission" },
-  { label: "Pomoc teraz", href: "#help" },
-  { label: "Kontakt", href: "#contact" },
+  { label: "Produkt", href: "/produkt" },
+  { label: "Demo", href: "/demo" },
+  { label: "Współpraca", href: "/dla-instytucji" },
+  { label: "Baza wiedzy", href: "/baza-wiedzy" },
+  { label: "Misja", href: "/misja" },
+  { label: "Pomoc teraz", href: "/pomoc-teraz", emphasis: "help" },
 ];
+
+export const footerNav = {
+  produkt: [
+    { label: "Jak działa", href: "/produkt" },
+    { label: "Interaktywne demo", href: "/demo" },
+    { label: "Tryby bezpieczeństwa", href: "/#tryby" },
+    { label: "Baza wiedzy", href: "/baza-wiedzy" },
+  ],
+  projekt: [
+    { label: "Misja i zasady", href: "/misja" },
+    { label: "Dla rodzin i szkół", href: "/dla-instytucji" },
+    { label: "Dołącz do listy", href: "/#kontakt" },
+    { label: "Pomoc teraz", href: "/pomoc-teraz" },
+  ],
+  prawne: [
+    { label: "Polityka prywatności", href: "/polityka-prywatnosci" },
+    { label: "Zasady korzystania", href: "/zasady-korzystania" },
+  ],
+};
 
 /* ------------------------------ Szybkie wartości ------------------------------ */
 
@@ -50,9 +70,9 @@ export interface TrustIndicator {
 
 export const trustIndicators: TrustIndicator[] = [
   { icon: ListChecks, label: "Proste kroki zamiast chaosu" },
-  { icon: WifiOff, label: "Tryb offline" },
-  { icon: HeartHandshake, label: "Wsparcie psychiczne" },
-  { icon: HeartPulse, label: "Instrukcje pierwszej pomocy" },
+  { icon: WifiOff, label: "Najważniejsze materiały offline" },
+  { icon: HeartHandshake, label: "Pierwsza pomoc psychologiczna" },
+  { icon: ShieldCheck, label: "Jasne granice i zasady" },
 ];
 
 /* ---------------------------------- Problemy ---------------------------------- */
@@ -100,19 +120,19 @@ export const pillars: Pillar[] = [
     icon: Compass,
     step: "01",
     title: "Zrozum sytuację",
-    text: "Krótkie wskazówki pomagają nazwać to, co się dzieje — bez diagnoz, bez oceniania i bez ściany tekstu.",
+    text: "Cztery proste tryby bezpieczeństwa pomagają nazwać to, co się dzieje — bez diagnoz, bez oceniania i bez ściany tekstu.",
   },
   {
     icon: ListChecks,
     step: "02",
     title: "Wykonaj pierwszy krok",
-    text: "Zamiast długiego artykułu dostajesz prostą checklistę: jedno działanie na raz, w logicznej kolejności.",
+    text: "Zamiast długiego artykułu dostajesz krótką checklistę dopasowaną do trybu: jedno działanie na raz, w logicznej kolejności.",
   },
   {
     icon: ShieldCheck,
     step: "03",
     title: "Zabezpiecz się na później",
-    text: "Poradniki offline, kontakty awaryjne i dashboard gotowości — przygotowane wcześniej, dostępne wtedy, gdy są potrzebne.",
+    text: "Plan bezpieczeństwa, kontakty awaryjne i poradniki offline — przygotowane wcześniej, dostępne wtedy, gdy są potrzebne.",
   },
 ];
 
@@ -128,42 +148,47 @@ export const features: Feature[] = [
   {
     icon: Siren,
     title: "Tryb kryzysowy",
-    text: "Krótkie ścieżki działania dla sytuacji stresowych i nagłych.",
+    text: "Krótkie ścieżki działania dla sytuacji stresowych i nagłych — dopasowane do jednego z czterech trybów bezpieczeństwa.",
   },
   {
     icon: HeartHandshake,
     title: "Wsparcie psychiczne",
-    text: "Proste ćwiczenia uspokajające, uziemienie, oddech i pierwsza pomoc emocjonalna.",
+    text: "Ćwiczenie oddechu 4–6, uziemienie 5-4-3-2-1 i zasady pierwszej pomocy emocjonalnej napisane prostym językiem.",
+  },
+  {
+    icon: Map,
+    title: "Plan bezpieczeństwa",
+    text: "Twoje bezpieczne miejsca, zaufane osoby i rzeczy, które pomagają — spisane wcześniej, dostępne jednym dotknięciem.",
   },
   {
     icon: HeartPulse,
     title: "Pierwsza pomoc",
-    text: "Podstawowe instrukcje dla laików, napisane prostym językiem.",
+    text: "Podstawowe instrukcje dla laików: co sprawdzić, kogo wezwać i co robić do przyjazdu pomocy.",
   },
   {
     icon: Backpack,
-    title: "Survival i bezpieczeństwo",
-    text: "Praktyczne procedury przygotowania, ewakuacji, zapasów i oceny sytuacji.",
+    title: "Przygotowanie i survival",
+    text: "Checklisty domowe: apteczka, zapasy na 72 godziny, dokumenty, plan ewakuacji i komunikacja awaryjna.",
   },
   {
     icon: WifiOff,
     title: "Tryb offline",
-    text: "Najważniejsze instrukcje dostępne nawet wtedy, gdy internet zawodzi.",
+    text: "Najważniejsze procedury i kontakty zapisane na urządzeniu — działają także bez internetu.",
   },
   {
     icon: PhoneCall,
     title: "Kontakty awaryjne",
-    text: "Miejsce na najważniejsze osoby, instytucje i numery pomocy.",
+    text: "Zweryfikowane telefony wsparcia oraz Twoje własne zaufane osoby w jednym miejscu.",
   },
   {
     icon: LayoutDashboard,
     title: "Dashboard gotowości",
-    text: "Wizualny podgląd checklist, kontaktów, pobranych poradników i postępu przygotowania.",
+    text: "Spokojny podgląd postępu: co już masz zabezpieczone i co warto przygotować w następnej kolejności.",
   },
   {
     icon: BookOpen,
     title: "Baza wiedzy",
-    text: "Krótkie, konkretne materiały bez nadmiaru informacji.",
+    text: "Krótkie, rzetelne materiały oparte na oficjalnych źródłach — bez straszenia i bez ściany tekstu.",
   },
 ];
 
@@ -195,7 +220,7 @@ export const crisisScenarios: CrisisScenario[] = [
       "Napisz lub zadzwoń do osoby z listy kontaktów.",
     ],
     reminder:
-      "Jeśli grozi Ci bezpośrednie niebezpieczeństwo, skontaktuj się z numerem alarmowym.",
+      "Jeśli grozi Ci bezpośrednie niebezpieczeństwo, skontaktuj się z numerem alarmowym 112.",
   },
   {
     id: "pierwsza-pomoc",
@@ -206,9 +231,9 @@ export const crisisScenarios: CrisisScenario[] = [
     message:
       "Działaj spokojnie i po kolei. Nie musisz wiedzieć wszystkiego — wystarczy kolejny krok.",
     steps: [
-      "Upewnij się, że miejsce jest bezpieczne.",
+      "Upewnij się, że miejsce jest bezpieczne dla Ciebie i poszkodowanego.",
       "Sprawdź, czy osoba reaguje i oddycha.",
-      "Wezwij pomoc, jeśli sytuacja jest poważna.",
+      "Wezwij pomoc pod 112, jeśli sytuacja jest poważna.",
     ],
     reminder:
       "ResourceGuard nie zastępuje kursu pierwszej pomocy ani służb ratunkowych.",
@@ -227,7 +252,7 @@ export const crisisScenarios: CrisisScenario[] = [
       "Jeśli potrzebujesz pomocy, spróbuj SMS — często dochodzi tam, gdzie połączenia głosowe nie działają.",
     ],
     reminder:
-      "Połączenie z numerem alarmowym często działa nawet przy bardzo słabym zasięgu.",
+      "Połączenie z numerem alarmowym 112 często działa nawet przy bardzo słabym zasięgu.",
   },
   {
     id: "zagrozenie",
@@ -243,7 +268,7 @@ export const crisisScenarios: CrisisScenario[] = [
       "Miej telefon pod ręką — naładowany, z numerem alarmowym na wierzchu.",
     ],
     reminder:
-      "Jeśli zagrożenie jest bezpośrednie, zadzwoń pod lokalny numer alarmowy.",
+      "Jeśli zagrożenie jest bezpośrednie, zadzwoń pod numer alarmowy 112.",
   },
   {
     id: "przygotowanie",
@@ -303,79 +328,90 @@ export interface ProcessStep {
 export const processSteps: ProcessStep[] = [
   {
     step: "1",
-    title: "Wybierasz sytuację",
-    text: "Panika, pierwsza pomoc, brak internetu, zagrożenie albo przygotowanie.",
+    title: "Nazywasz swój stan",
+    text: "Cztery tryby bezpieczeństwa: stabilnie, potrzebuję wsparcia, sytuacja się nasila, pilna pomoc.",
   },
   {
     step: "2",
     title: "Dostajesz krótkie kroki",
-    text: "Bez ściany tekstu. Najpierw najważniejsze działanie.",
+    text: "Bez ściany tekstu. Najpierw najważniejsze działanie dopasowane do trybu.",
   },
   {
     step: "3",
     title: "Korzystasz offline",
-    text: "Kluczowe materiały możesz mieć przygotowane wcześniej.",
+    text: "Kluczowe materiały i kontakty masz przygotowane wcześniej, także bez sieci.",
   },
   {
     step: "4",
     title: "Budujesz gotowość",
-    text: "Dashboard pokazuje, co już masz zabezpieczone.",
+    text: "Dashboard spokojnie pokazuje, co już masz zabezpieczone.",
   },
 ];
 
-/* --------------------------------- Zastosowania -------------------------------- */
+/* ------------------------- Odbiorcy i modele współpracy ------------------------ */
 
-export interface UseCase {
+export interface Segment {
+  id: string;
   icon: LucideIcon;
   title: string;
+  subtitle: string;
   text: string;
+  benefits: string[];
+  cta: { label: string; href: string };
 }
 
-export const useCases: UseCase[] = [
+export const segments: Segment[] = [
   {
+    id: "indywidualni",
     icon: GraduationCap,
-    title: "Dla młodych osób",
-    text: "Prosty język, ćwiczenia uspokajające i szybki kontakt do zaufanych osób.",
+    title: "Osoby indywidualne",
+    subtitle: "Młodzież i młodzi dorośli",
+    text: "Prosty język, ćwiczenia uspokajające i plan bezpieczeństwa, który zawsze masz przy sobie — także offline.",
+    benefits: [
+      "Cztery tryby bezpieczeństwa zamiast chaosu",
+      "Ćwiczenia oddechu i uziemienia",
+      "Własny plan bezpieczeństwa w telefonie",
+    ],
+    cta: { label: "Dołącz do listy", href: "/#kontakt" },
   },
   {
+    id: "rodziny",
     icon: Home,
-    title: "Dla rodziców",
-    text: "Checklisty domowe, kontakty, procedury i spokojne instrukcje dla całej rodziny.",
+    title: "Rodziny i opiekunowie",
+    subtitle: "Rodzice, opiekunowie, bliscy",
+    text: "Wspólne checklisty domowe, kontakty całej rodziny i spokojne instrukcje, które dzieci rozumieją bez tłumaczenia.",
+    benefits: [
+      "Domowy plan awaryjny krok po kroku",
+      "Materiały o wspieraniu dziecka w kryzysie",
+      "Przygotowanie domu: apteczka, zapasy, dokumenty",
+    ],
+    cta: { label: "Dołącz do listy", href: "/#kontakt" },
   },
   {
+    id: "szkoly",
     icon: School,
-    title: "Dla szkół",
-    text: "Materiały edukacyjne, scenariusze kryzysowe i wsparcie profilaktyczne.",
+    title: "Szkoły i fundacje",
+    subtitle: "Pedagodzy, psycholodzy, wychowawcy",
+    text: "Gotowe materiały profilaktyczne i scenariusze rozmów o bezpieczeństwie — oparte na oficjalnych źródłach.",
+    benefits: [
+      "Scenariusze zajęć o reagowaniu w kryzysie",
+      "Wspólny język czterech trybów w całej placówce",
+      "Program pilotażowy z realnym wpływem na produkt",
+    ],
+    cta: { label: "Napisz w sprawie pilotażu", href: "/dla-instytucji" },
   },
   {
+    id: "organizacje",
     icon: Building2,
-    title: "Dla organizacji",
-    text: "Narzędzie wspierające komunikację i przygotowanie zespołów w trudnych sytuacjach.",
-  },
-];
-
-/* ----------------------------------- Opinie ----------------------------------- */
-
-export interface Testimonial {
-  quote: string;
-  role: string;
-}
-
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "Największą wartością jest prostota. W stresie nie chcę czytać długich poradników — chcę wiedzieć, co zrobić najpierw.",
-    role: "Uczeń",
-  },
-  {
-    quote:
-      "Uspokaja mnie to, że kontakty i procedury mamy przygotowane wcześniej. Dzieci wiedzą, gdzie ich szukać.",
-    role: "Rodzic",
-  },
-  {
-    quote:
-      "Krótkie, konkretne materiały to coś, czego brakuje w profilaktyce. Da się na nich oprzeć rozmowę z klasą.",
-    role: "Pedagog szkolny",
+    title: "Organizacje i partnerzy",
+    subtitle: "Instytucje pomocowe, NGO, zespoły",
+    text: "Wspólne budowanie standardu cyfrowego wsparcia kryzysowego: treści, dystrybucja i wdrożenia w zespołach.",
+    benefits: [
+      "Weryfikacja merytoryczna treści",
+      "Dystrybucja wśród podopiecznych",
+      "Wdrożenia i materiały dla zespołów",
+    ],
+    cta: { label: "Porozmawiajmy o współpracy", href: "/dla-instytucji" },
   },
 ];
 
@@ -395,12 +431,52 @@ export const values: Value[] = [
   { title: "Użyteczność", text: "Wszystko ma działać wtedy, gdy głowa nie działa idealnie." },
 ];
 
+/* ------------------------------------- FAQ ------------------------------------ */
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export const faq: FaqItem[] = [
+  {
+    question: "Czy ResourceGuard zastępuje psychologa lub terapię?",
+    answer:
+      "Nie. ResourceGuard to narzędzie edukacyjne i wspierające pierwsze kroki. Nie diagnozuje, nie leczy i nie zastępuje kontaktu ze specjalistą, lekarzem ani służbami ratunkowymi. Przy poważnych trudnościach zawsze zachęcamy do kontaktu z profesjonalną pomocą.",
+  },
+  {
+    question: "Co się dzieje z moimi danymi?",
+    answer:
+      "W wersji demo wszystkie dane (plan bezpieczeństwa, kontakty, postęp) zapisują się wyłącznie lokalnie na Twoim urządzeniu i możesz je w każdej chwili usunąć jednym przyciskiem. Nie wysyłamy ich na żaden serwer.",
+  },
+  {
+    question: "Jak działa tryb offline?",
+    answer:
+      "Najważniejsze strony — w tym telefony wsparcia i podstawowe procedury — są zapisywane na urządzeniu po pierwszej wizycie. Gdy internet przestaje działać, nadal masz do nich dostęp. Zakres offline jest jasno opisany i nie obiecujemy więcej, niż faktycznie działa.",
+  },
+  {
+    question: "Czy aplikacja monitoruje mój stan albo powiadamia służby?",
+    answer:
+      "Nie. ResourceGuard niczego nie monitoruje i nie wysyła automatycznych zgłoszeń. Wybór trybu bezpieczeństwa zmienia tylko to, co widzisz na ekranie. Decyzja o kontakcie z pomocą zawsze należy do Ciebie.",
+  },
+  {
+    question: "Dla kogo jest ResourceGuard?",
+    answer:
+      "Dla młodzieży, młodych dorosłych, rodziców i opiekunów — oraz dla szkół, fundacji i organizacji, które chcą mieć wspólny, prosty język reagowania w trudnych sytuacjach.",
+  },
+  {
+    question: "Ile to kosztuje?",
+    answer:
+      "Trwa faza budowy produktu. Podstawowe funkcje bezpieczeństwa pozostaną bezpłatne — zasady etyczne projektu nie pozwalają zamykać pomocy kryzysowej za paywallem. O modelach dla rodzin i instytucji poinformujemy listę wczesnego dostępu w pierwszej kolejności.",
+  },
+];
+
 /* ----------------------------------- Kontakt ---------------------------------- */
 
 export const contactTypes = [
-  "Early access",
-  "Współpraca",
-  "Szkoła / organizacja",
+  "Wczesny dostęp",
+  "Szkoła / fundacja",
+  "Organizacja / partner",
   "Feedback",
   "Inne",
 ];
@@ -412,16 +488,16 @@ export interface ContactCard {
 
 export const contactCards: ContactCard[] = [
   {
-    title: "Dla szkół i organizacji",
-    text: "Szukamy placówek zainteresowanych materiałami profilaktycznymi i pilotażem.",
+    title: "Dla szkół i fundacji",
+    text: "Szukamy placówek zainteresowanych materiałami profilaktycznymi i udziałem w pilotażu.",
   },
   {
-    title: "Dla osób testujących MVP",
-    text: "Dołącz do listy wczesnego dostępu i pomóż nam sprawdzić, co działa w praktyce.",
+    title: "Dla osób testujących",
+    text: "Dołącz do listy wczesnego dostępu i pomóż nam sprawdzić, co naprawdę działa w praktyce.",
   },
   {
-    title: "Dla partnerów społecznych",
-    text: "Fundacje, instytucje i specjaliści — chętnie porozmawiamy o współpracy.",
+    title: "Dla partnerów",
+    text: "Fundacje, instytucje i specjaliści — chętnie porozmawiamy o wspólnym rozwijaniu projektu.",
   },
 ];
 
@@ -433,15 +509,25 @@ export interface Helpline {
   name: string;
   desc: string;
   info: string;
+  audience: "dzieci" | "dorosli" | "wszyscy";
 }
 
 export const helplines: Helpline[] = [
   {
+    number: "112",
+    tel: "112",
+    name: "Numer alarmowy",
+    desc: "Jeden europejski numer w nagłych sytuacjach zagrożenia życia, zdrowia lub bezpieczeństwa. Działa też przy bardzo słabym zasięgu.",
+    info: "24/7 · bezpłatny · całą dobę",
+    audience: "wszyscy",
+  },
+  {
     number: "116 111",
     tel: "116111",
     name: "Telefon Zaufania dla Dzieci i Młodzieży",
-    desc: "Dla dzieci i nastolatków — także przy obniżonym nastroju, depresji, lęku czy problemach w domu i szkole. Prowadzi Fundacja Dajemy Dzieciom Siłę. Dostępny też czat na 116111.pl.",
+    desc: "Dla dzieci i nastolatków — także przy obniżonym nastroju, lęku czy problemach w domu i szkole. Prowadzi Fundacja Dajemy Dzieciom Siłę. Czat na 116111.pl.",
     info: "24/7 · bezpłatny · anonimowy",
+    audience: "dzieci",
   },
   {
     number: "800 12 12 12",
@@ -449,13 +535,15 @@ export const helplines: Helpline[] = [
     name: "Dziecięcy Telefon Zaufania Rzecznika Praw Dziecka",
     desc: "Wsparcie psychologiczne dla dzieci i młodzieży oraz dorosłych dzwoniących w sprawie dziecka. Dostępny również czat.",
     info: "24/7 · bezpłatny",
+    audience: "dzieci",
   },
   {
     number: "116 123",
     tel: "116123",
-    name: "Telefon zaufania dla dorosłych w kryzysie emocjonalnym",
-    desc: "Dla dorosłych przeżywających trudne emocje, samotność, kryzys psychiczny lub myśli rezygnacyjne.",
+    name: "Kryzysowa linia pomocowa 116sos.pl",
+    desc: "Bezpłatna pomoc psychologiczna dla dorosłych w kryzysie emocjonalnym — telefon, czat i formularz w ramach rządowej platformy 116sos.pl.",
     info: "24/7 · bezpłatny",
+    audience: "dorosli",
   },
   {
     number: "800 70 2222",
@@ -463,20 +551,22 @@ export const helplines: Helpline[] = [
     name: "Centrum Wsparcia dla Osób Dorosłych w Kryzysie Psychicznym",
     desc: "Całodobowe wsparcie psychologiczne dla dorosłych — przy depresji, zaburzeniach psychicznych i kryzysie. Dyżury także mailowo i na czacie.",
     info: "24/7 · bezpłatny",
+    audience: "dorosli",
   },
   {
     number: "800 120 002",
     tel: "800120002",
-    name: "Niebieska Linia — przemoc w rodzinie",
-    desc: "Ogólnopolski telefon dla osób doświadczających przemocy domowej oraz świadków przemocy.",
+    name: "Niebieska Linia — telefon dla osób doznających przemocy domowej",
+    desc: "Ogólnopolski telefon „Niebieskiej Linii” dla osób doznających przemocy domowej oraz świadków przemocy.",
     info: "24/7 · bezpłatny",
+    audience: "wszyscy",
   },
 ];
 
 /* --------------------------------- Disclaimer --------------------------------- */
 
 export const disclaimer =
-  "ResourceGuard nie zastępuje pomocy medycznej, psychologicznej, prawnej ani służb ratunkowych. W sytuacji bezpośredniego zagrożenia należy skontaktować się z lokalnym numerem alarmowym.";
+  "ResourceGuard nie zastępuje pomocy medycznej, psychologicznej, prawnej ani służb ratunkowych. W sytuacji bezpośredniego zagrożenia życia lub zdrowia zadzwoń pod numer alarmowy 112.";
 
 export const emergencyNote =
-  "W sytuacji zagrożenia życia lub zdrowia skontaktuj się z lokalnym numerem alarmowym.";
+  "W sytuacji zagrożenia życia lub zdrowia zadzwoń pod numer alarmowy 112.";

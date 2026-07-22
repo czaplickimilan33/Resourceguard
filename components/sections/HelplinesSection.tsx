@@ -5,7 +5,7 @@ import Reveal from "@/components/ui/Reveal";
 
 export default function HelplinesSection() {
   return (
-    <section id="help" className="py-20 sm:py-28">
+    <section id="pomoc" className="py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader
           eyebrow="Pomoc teraz"
@@ -39,7 +39,7 @@ export default function HelplinesSection() {
         </Reveal>
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {helplines.map((line, i) => (
+          {helplines.filter((line) => line.number !== "112").map((line, i) => (
             <Reveal key={line.number} delay={0.05 + i * 0.06}>
               <a
                 href={`tel:${line.tel}`}
@@ -80,8 +80,15 @@ export default function HelplinesSection() {
         </div>
 
         <Reveal delay={0.1}>
-          <p className="mt-8 text-center text-xs text-mut">
-            Numery i godziny dostępności mogą się zmieniać — aktualne
+          <p className="mt-8 text-center text-sm text-mut">
+            Pełna lista telefonów wraz ze wskazówkami, kiedy zadzwonić:{" "}
+            <a
+              href="/pomoc-teraz"
+              className="font-medium text-accent underline decoration-accent/30 underline-offset-2 transition-colors hover:text-sky-300"
+            >
+              Pomoc teraz
+            </a>
+            . Numery i godziny dostępności mogą się zmieniać — aktualne
             informacje znajdziesz na stronach operatorów poszczególnych linii.
           </p>
         </Reveal>
