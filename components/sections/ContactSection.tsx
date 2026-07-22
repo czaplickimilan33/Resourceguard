@@ -280,7 +280,12 @@ export default function ContactSection({
                 </div>
 
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <Button type="submit" size="lg" disabled={status === "sending"}>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={status === "sending"}
+                    className="shrink-0 whitespace-nowrap"
+                  >
                     {status === "sending" ? (
                       <>
                         Wysyłanie…

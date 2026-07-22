@@ -38,6 +38,10 @@ export const metadata: Metadata = {
     "telefony zaufania",
   ],
   alternates: { canonical: "/" },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
+  },
   openGraph: {
     title: `${siteName} — ${siteTagline}`,
     description: siteDescription,

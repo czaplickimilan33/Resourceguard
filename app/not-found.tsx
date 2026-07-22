@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Compass, LifeBuoy } from "lucide-react";
 import Button from "@/components/ui/Button";
 

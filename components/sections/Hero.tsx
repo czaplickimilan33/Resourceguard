@@ -84,8 +84,8 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
           className="relative mx-auto w-full max-w-sm"
         >
-          {/* Floating breath card */}
-          <div className="absolute -left-10 top-16 hidden rounded-xl border border-white/10 bg-card-deep/90 px-4 py-3 shadow-xl backdrop-blur sm:flex sm:items-center sm:gap-3">
+          {/* Floating breath card — nachodzi na róg telefonu jak powiadomienie */}
+          <div className="absolute -left-6 top-24 z-10 hidden rounded-xl border border-white/10 bg-night-2/95 px-4 py-3 shadow-xl backdrop-blur sm:flex sm:items-center sm:gap-3">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-mint/15 text-mint">
               <Wind className="h-4 w-4" aria-hidden />
             </span>
@@ -95,7 +95,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-card-deep/80 p-5 shadow-2xl backdrop-blur">
+          <div className="relative rounded-3xl border border-white/10 bg-card-deep/80 p-5 shadow-2xl backdrop-blur">
             {/* Status */}
             <div className="flex items-center justify-between">
               <span className="inline-flex items-center gap-2 rounded-full border border-mint/25 bg-mint/10 px-3 py-1 text-xs font-medium text-mint">

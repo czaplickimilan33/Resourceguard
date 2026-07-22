@@ -7,3 +7,9 @@ build/
 next-env.d.ts
 .env*
 !.env.example
+
+# Testy
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
