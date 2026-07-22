@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 
 export default function MissionSection() {
   return (
-    <section id="mission" className="py-20 sm:py-28">
+    <section id="misja" className="py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader
           eyebrow="Misja"
@@ -35,8 +35,11 @@ export default function MissionSection() {
                 i nie zastępuje specjalistów. To narzędzie edukacyjne
                 i wspierające, nie służba ratunkowa.
               </p>
-              <div className="pt-2">
-                <Button href="#contact" variant="secondary">
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Button href="/misja" variant="secondary">
+                  Poznaj misję i zasady projektu
+                </Button>
+                <Button href="/#kontakt" variant="ghost">
                   Napisz w sprawie współpracy
                 </Button>
               </div>

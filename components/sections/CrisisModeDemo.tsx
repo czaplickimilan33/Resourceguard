@@ -32,7 +32,7 @@ export default function CrisisModeDemo() {
   const progress = Math.round((doneSteps.length / active.steps.length) * 100);
 
   return (
-    <section id="crisis-mode" className="border-y border-white/5 bg-night-2 py-20 sm:py-28">
+    <section id="tryb-kryzysowy" className="border-y border-white/5 bg-night-2 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader
           eyebrow="Tryb kryzysowy"
@@ -187,8 +187,8 @@ export default function CrisisModeDemo() {
                 </div>
 
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <Button href="#contact">Dołącz do listy</Button>
-                  <Button href="#features" variant="ghost">
+                  <Button href="/demo">Wypróbuj pełne demo</Button>
+                  <Button href="#funkcje" variant="ghost">
                     Zobacz wszystkie funkcje
                     <ChevronRight
                       className="h-4 w-4 transition-transform group-hover:translate-x-0.5"

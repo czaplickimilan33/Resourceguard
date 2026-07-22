@@ -26,11 +26,11 @@ export default function CTASection() {
                 informacji.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <Button href="#contact" size="lg">
+                <Button href="/#kontakt" size="lg">
                   Dołącz do listy
                 </Button>
-                <Button href="#crisis-mode" variant="secondary" size="lg">
-                  Zobacz demo trybu kryzysowego
+                <Button href="/demo" variant="secondary" size="lg">
+                  Wypróbuj interaktywne demo
                   <ChevronRight
                     className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                     aria-hidden
